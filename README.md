@@ -704,7 +704,7 @@ you if you forget either of the rules above!
     end
     ```
 
-* When using `reduce` with blocks, you may name arguments 
+* When using `reduce` with blocks, you may name the arguments 
   `|accumulator, element|`, not `|a, e|`. But whenever possible, attempt to find
   a proper contextual naming of a variable. Prefer clarity over brevity.
 * When defining binary operators, name the argument `other`.
