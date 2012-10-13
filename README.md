@@ -705,8 +705,8 @@ you if you forget either of the rules above!
     ```
 
 * When using `reduce` with blocks, you may name arguments 
-  `|accumulator, element|`, not `|a, e|`. Prefer clarity over brevity.
-
+  `|accumulator, element|`, not `|a, e|`. But whenever possible, attempt to find
+  a proper contextual naming of a variable. Prefer clarity over brevity.
 * When defining binary operators, name the argument `other`.
 
     ```Ruby
