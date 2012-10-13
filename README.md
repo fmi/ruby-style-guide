@@ -704,8 +704,9 @@ you if you forget either of the rules above!
     end
     ```
 
-* When using `reduce` with short blocks, name the arguments `|a, e|`
-  (accumulator, element).
+* When using `reduce` with blocks, you may name arguments 
+  `|accumulator, element|`, not `|a, e|`. Prefer clarity over brevity.
+
 * When defining binary operators, name the argument `other`.
 
     ```Ruby
