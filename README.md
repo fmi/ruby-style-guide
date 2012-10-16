@@ -101,8 +101,8 @@ You can generate a PDF or an HTML copy of this guide using
 
         $ git config --global core.autocrlf true
 
-* Use spaces around operators, after commas, colons and semicolons and around
-  `{` and before `}` that surround a block. Whitespace might be (mostly) 
+* Use spaces around operators, after commas, colons, semicolons, and when
+  defining a block around `{` and before `}`. Whitespace might be (mostly) 
   irrelevant to the Ruby interpreter, but its proper use is the key to writing 
   easily readable code.
 
