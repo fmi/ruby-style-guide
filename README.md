@@ -101,10 +101,10 @@ You can generate a PDF or an HTML copy of this guide using
 
         $ git config --global core.autocrlf true
 
-* Use spaces around operators, after commas, colons and semicolons, around `{`
-  and before `}`. Whitespace might be (mostly) irrelevant to the Ruby
-  interpreter, but its proper use is the key to writing easily
-  readable code.
+* Use spaces around operators, after commas, colons, semicolons, and when
+  defining a block around `{` and before `}`. Whitespace might be (mostly) 
+  irrelevant to the Ruby interpreter, but its proper use is the key to writing 
+  easily readable code.
 
     ```Ruby
     sum = 1 + 2
@@ -129,6 +129,12 @@ You can generate a PDF or an HTML copy of this guide using
     some(arg).other
     [1, 2, 3].length
     ```
+* No spaces after `{` or before `}` when creating a Hash
+
+    ```Ruby
+    {:foo => 1, :bar => 2}
+    {foo: 1, bar: 2}
+    ``` 
 
 * Indent `when` as deep as `case`. I know that many would disagree
   with this one, but it's the style established in both the "The Ruby
@@ -610,16 +616,6 @@ would happen if the current value happened to be `false`.)
 
 * Always run the Ruby interpreter with the `-w` option so it will warn
 you if you forget either of the rules above!
-
-* The new hash literal syntax is preferred in Ruby 1.9 when your hash keys are symbols.
-
-    ```Ruby
-    # bad
-    hash = { :one => 1, :two => 2 }
-
-    # good
-    hash = { one: 1, two: 2 }
-    ```
 
 * The new lambda literal syntax is preferred in Ruby 1.9.
 
@@ -1206,10 +1202,10 @@ strings.
 
     ```Ruby
     # bad
-    hash = { 'one' => 1, 'two' => 2, 'three' => 3 }
+    hash = {'one' => 1, 'two' => 2, 'three' => 3}
 
     # good
-    hash = { one: 1, two: 2, three: 3 }
+    hash = {one: 1, two: 2, three: 3}
     ```
 
 * Avoid the use of mutable objects as hash keys.
@@ -1217,10 +1213,10 @@ strings.
 
     ```Ruby
     # bad
-    hash = { :one => 1, :two => 2, :three => 3 }
+    hash = {:one => 1, :two => 2, :three => 3}
 
     # good
-    hash = { one: 1, two: 2, three: 3 }
+    hash = {one: 1, two: 2, three: 3}
     ```
 
 * Rely on the fact that hashes in Ruby 1.9 are ordered.
