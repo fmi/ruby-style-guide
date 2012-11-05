@@ -311,13 +311,13 @@ You can generate a PDF or an HTML copy of this guide using
 
 * Never use `when x; ...`. See the previous rule.
 
-* Use `&&/||` for boolean expressions, `and/or` for control flow.  (Rule
-  of thumb: If you have to use outer parentheses, you are using the
-  wrong operators.)
+* Always prefer the word version of the logical operators. Keep in mind that the
+  symbol versions ``!/&&/||`` have lower precedence than ``not/and/or`` so using
+  them together may yield unexpected results.
 
     ```Ruby
     # boolean expression
-    if some_condition && some_other_condition
+    if some_condition and some_other_condition
       do_something
     end
 
