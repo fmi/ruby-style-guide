@@ -307,8 +307,8 @@ You can generate a PDF or an HTML copy of this guide using
 * Never use `when x; ...`. See the previous rule.
 
 * Always prefer the word version of the logical operators. Keep in mind that the
-  symbol versions ``!/&&/||`` have lower precedence than ``not/and/or`` so using
-  them together may yield unexpected results.
+  symbol versions ``!/&&/||`` have higher precedence than ``not/and/or`` so
+  using them together may yield unexpected results.
 
     ```Ruby
     # boolean expression
