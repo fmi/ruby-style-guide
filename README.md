@@ -1,8 +1,5 @@
 # Prelude
 
-> Style is what separates the good from the great. <br/>
-> -- Bozhidar Batsov
-
 One thing has always bothered me as Ruby developer - Python developers
 have a great programming style reference
 ([PEP-8](http://www.python.org/dev/peps/pep-0008/)) and we never got
