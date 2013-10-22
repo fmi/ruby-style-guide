@@ -99,8 +99,8 @@ You can generate a PDF or an HTML copy of this guide using
         $ git config --global core.autocrlf true
 
 * Use spaces around operators, after commas, colons, semicolons, and when
-  defining a block around `{` and before `}`. Whitespace might be (mostly) 
-  irrelevant to the Ruby interpreter, but its proper use is the key to writing 
+  defining a block around `{` and before `}`. Whitespace might be (mostly)
+  irrelevant to the Ruby interpreter, but its proper use is the key to writing
   easily readable code.
 
     ```Ruby
@@ -131,7 +131,7 @@ You can generate a PDF or an HTML copy of this guide using
     ```Ruby
     {:foo => 1, :bar => 2}
     {foo: 1, bar: 2}
-    ``` 
+    ```
 
 * Indent `when` and `else` one level deeper than `case`.
 
@@ -618,10 +618,12 @@ you if you forget either of the rules above!
     # bad
     lambda = lambda { |a, b| a + b }
     lambda.call(1, 2)
+    lambda.(1, 2)
+    lambda[1, 2]
 
     # good
     lambda = ->(a, b) { a + b }
-    lambda.(1, 2)
+    lambda.call 1, 2
     ```
 
 * Use `_` for unused block parameters.
@@ -695,7 +697,7 @@ you if you forget either of the rules above!
     end
     ```
 
-* When using `reduce` with blocks, you may name the arguments 
+* When using `reduce` with blocks, you may name the arguments
   `|accumulator, element|`, not `|a, e|`. But whenever possible, attempt to find
   a proper contextual naming of a variable. Prefer clarity over brevity.
 * When defining binary operators, name the argument `other`.
