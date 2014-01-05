@@ -98,6 +98,49 @@ You can generate a PDF or an HTML copy of this guide using
 
         $ git config --global core.autocrlf true
 
+* Don't use `;` to separate statements and expressions. As a
+  corollary - use one expression per line.
+
+    ```Ruby
+    # bad
+    puts 'foobar'; # superfluous semicolon
+
+    puts 'foo'; puts 'bar' # two expression on the same line
+
+    # good
+    puts 'foobar'
+
+    puts 'foo'
+    puts 'bar'
+
+    puts 'foo', 'bar' # this applies to puts in particular
+    ```
+
+* Avoid single-line methods. Although they are somewhat popular in the
+  wild, there are a few peculiarities about their definition syntax
+  that make their use undesirable.
+
+    ```Ruby
+    # bad
+    def too_much; something; something_else; end
+
+    # good
+    def some_method
+      body
+    end
+
+    # avoided syntax peculiarities
+
+    # notice that the first ; is required
+    def no_braces_method; body end
+
+    # notice that the second ; is optional
+    def no_braces_method; body; end
+
+    # valid but undesirable syntax
+    def some_method() body end
+    ```
+
 * Use spaces around operators, after commas, colons, semicolons, and when
   defining a block around `{` and before `}`. Whitespace might be (mostly)
   irrelevant to the Ruby interpreter, but its proper use is the key to writing
