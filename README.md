@@ -98,6 +98,24 @@ You can generate a PDF or an HTML copy of this guide using
 
         $ git config --global core.autocrlf true
 
+* Don't use `;` to separate statements and expressions. As a
+  corollary - use one expression per line.
+
+    ```Ruby
+    # bad
+    puts 'foobar'; # superfluous semicolon
+
+    puts 'foo'; puts 'bar' # two expression on the same line
+
+    # good
+    puts 'foobar'
+
+    puts 'foo'
+    puts 'bar'
+
+    puts 'foo', 'bar' # this applies to puts in particular
+    ```
+
 * Use spaces around operators, after commas, colons, semicolons, and when
   defining a block around `{` and before `}`. Whitespace might be (mostly)
   irrelevant to the Ruby interpreter, but its proper use is the key to writing
