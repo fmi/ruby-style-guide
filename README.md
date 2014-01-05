@@ -137,7 +137,7 @@ You can generate a PDF or an HTML copy of this guide using
     # notice that the second ; is optional
     def no_braces_method; body; end
 
-    # another valid syntax
+    # valid but undesirable syntax
     def some_method() body end
     ```
 
