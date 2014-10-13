@@ -174,11 +174,35 @@ You can generate a PDF or an HTML copy of this guide using
     ```Ruby
     {:foo => 1, :bar => 2}
     {foo: 1, bar: 2}
+
     ```
 
-* Indent `when` and `else` one level deeper than `case`.
+* No space after `!`.
+
+  ```Ruby
+  # bad
+  ! something
+
+  # good
+  !something
+  ```
+
+* No space inside range literals.
 
     ```Ruby
+    # bad
+    1 .. 3
+    'a' ... 'z'
+
+    # good
+    1..3
+    'a'..'z'
+    ```
+
+* Indent `when` and `else` one as deep as `case`.
+
+    ```Ruby
+    # bad
     case
       when song.name == 'Misty'
         puts 'Not again!'
@@ -190,14 +214,38 @@ You can generate a PDF or an HTML copy of this guide using
         song.play
     end
 
+    # good
+    case
+    when song.name == 'Misty'
+      puts 'Not again!'
+    when song.duration > 120
+      puts 'Too long!'
+    when Time.now.hour > 21
+      puts "It's too late"
+    else
+      song.play
+    end
+
+    # good
     kind = case year
-             when 1850..1889 then 'Blues'
-             when 1890..1909 then 'Ragtime'
-             when 1910..1929 then 'New Orleans Jazz'
-             when 1930..1939 then 'Swing'
-             when 1940..1950 then 'Bebop'
-             else 'Jazz'
+           when 1850..1889 then 'Blues'
+           when 1890..1909 then 'Ragtime'
+           when 1910..1929 then 'New Orleans Jazz'
+           when 1930..1939 then 'Swing'
+           when 1940..1950 then 'Bebop'
+           else 'Jazz'
            end
+
+    # good (and a bit more width efficient)
+    kind = 
+      case year
+      when 1850..1889 then 'Blues'
+      when 1890..1909 then 'Ragtime'
+      when 1910..1929 then 'New Orleans Jazz'
+      when 1930..1939 then 'Swing'
+      when 1940..1950 then 'Bebop'
+      else 'Jazz'
+      end
     ```
 
 * Use empty lines between `def`s and to break up a method into logical
@@ -216,6 +264,40 @@ You can generate a PDF or an HTML copy of this guide using
       result
     end
     ```
+
+* Use spaces around the `=` operator when assigning default values to method
+  parameters:
+
+  ```Ruby
+  # bad
+  def some_method(arg1=:default, arg2=nil, arg3=[])
+    # do something...
+  end
+
+  # good
+  def some_method(arg1 = :default, arg2 = nil, arg3 = [])
+    # do something...
+  end
+  ```
+
+  While several Ruby books suggest the first style, the second is much more
+  prominent in practice (and arguably a bit more readable).
+
+* Avoid line continuation `\` where not required. In practice, avoid using
+  line continuations for anything but string concatenation.
+
+  ```Ruby
+  # bad
+  result = 1 - \
+           2
+
+  # good (but still ugly as hell)
+  result = 1 \
+           - 2
+
+  long_string = 'First part of the long string' \
+                ' and second part of the long string'
+  ```
 
 * Align the parameters of a method call if they span over multiple lines.
 
@@ -252,10 +334,70 @@ You can generate a PDF or an HTML copy of this guide using
     end
     ```
 
+* Avoid comma after the last parameter in a method call, especially when the parameters are not on separate lines.
+
+    ```Ruby
+    #bad - easier to move/add/remove parameters, but still not preferred
+    some_method(
+                size,
+                count,
+                color,
+                )
+
+    #bad
+    some_method(size, count, color, )
+
+    #good
+    some_method(size, count, color)
+    ```
+
+* Align the elements of array literals spanning multiple lines.
+
+    ```Ruby
+    # bad - single indent
+    menu_item = ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
+        'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+
+    # good
+    menu_item = [
+      'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
+      'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam'
+    ]
+
+    # good
+    menu_item =
+     ['Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam',
+      'Baked beans', 'Spam', 'Spam', 'Spam', 'Spam', 'Spam']
+    ```
+
+* Add underscores to large numeric literals to improve their readability.
+    
+    ```Ruby
+    # bad - how many 0s are there?
+    num = 1000000
+
+    #good - much easier to parse for human brain
+    num = 1_000_000
+    ```
+
 * Use RDoc and its conventions for API documentation.  Don't put an
   empty line between the comment block and the `def`.
 * Keep lines fewer than 80 characters.
 * Avoid trailing whitespace.
+* End each file with a newline.
+* Don't use block comments. They cannot be preceded by whitespace and are not as easy to spot as regular comments.
+
+    ```Ruby
+    # bad
+    =begin
+    comment line
+    another comment line
+    =end
+
+    # good
+    #comment line
+    #another comment line
+    ```
 
 ## Syntax
 
